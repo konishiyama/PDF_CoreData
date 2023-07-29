@@ -16,6 +16,13 @@
 		9782B04B2A754AC2009CDA0C /* PDF_CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B04A2A754AC2009CDA0C /* PDF_CoreDataTests.swift */; };
 		9782B0552A754AC2009CDA0C /* PDF_CoreDataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B0542A754AC2009CDA0C /* PDF_CoreDataUITests.swift */; };
 		9782B0572A754AC2009CDA0C /* PDF_CoreDataUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B0562A754AC2009CDA0C /* PDF_CoreDataUITestsLaunchTests.swift */; };
+		9782B0652A754B5F009CDA0C /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B0632A754B5E009CDA0C /* Book+CoreDataClass.swift */; };
+		9782B0662A754B5F009CDA0C /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B0642A754B5F009CDA0C /* Book+CoreDataProperties.swift */; };
+		9782B0692A754E7D009CDA0C /* data2vec.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9782B0682A754E7D009CDA0C /* data2vec.pdf */; };
+		9782B0702A754EB2009CDA0C /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B06C2A754EB2009CDA0C /* GridView.swift */; };
+		9782B0712A754EB2009CDA0C /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B06D2A754EB2009CDA0C /* Bookshelf.swift */; };
+		9782B0722A754EB2009CDA0C /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B06E2A754EB2009CDA0C /* BrowseView.swift */; };
+		9782B0732A754EB2009CDA0C /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B06F2A754EB2009CDA0C /* CoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,13 @@
 		9782B0502A754AC2009CDA0C /* PDF_CoreDataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDF_CoreDataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9782B0542A754AC2009CDA0C /* PDF_CoreDataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF_CoreDataUITests.swift; sourceTree = "<group>"; };
 		9782B0562A754AC2009CDA0C /* PDF_CoreDataUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF_CoreDataUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9782B0632A754B5E009CDA0C /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9782B0642A754B5F009CDA0C /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9782B0682A754E7D009CDA0C /* data2vec.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = data2vec.pdf; sourceTree = "<group>"; };
+		9782B06C2A754EB2009CDA0C /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		9782B06D2A754EB2009CDA0C /* Bookshelf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookshelf.swift; sourceTree = "<group>"; };
+		9782B06E2A754EB2009CDA0C /* BrowseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		9782B06F2A754EB2009CDA0C /* CoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,8 @@
 		9782B0282A754AC0009CDA0C = {
 			isa = PBXGroup;
 			children = (
+				9782B0632A754B5E009CDA0C /* Book+CoreDataClass.swift */,
+				9782B0642A754B5F009CDA0C /* Book+CoreDataProperties.swift */,
 				9782B0332A754AC0009CDA0C /* PDF_CoreData */,
 				9782B0492A754AC2009CDA0C /* PDF_CoreDataTests */,
 				9782B0532A754AC2009CDA0C /* PDF_CoreDataUITests */,
@@ -98,8 +114,9 @@
 		9782B0332A754AC0009CDA0C /* PDF_CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				9782B0682A754E7D009CDA0C /* data2vec.pdf */,
+				9782B0672A754E61009CDA0C /* Views */,
 				9782B0342A754AC0009CDA0C /* PDF_CoreDataApp.swift */,
-				9782B0362A754AC0009CDA0C /* ContentView.swift */,
 				9782B0382A754AC2009CDA0C /* Assets.xcassets */,
 				9782B03D2A754AC2009CDA0C /* Persistence.swift */,
 				9782B03F2A754AC2009CDA0C /* PDF_CoreData.xcdatamodeld */,
@@ -131,6 +148,34 @@
 				9782B0562A754AC2009CDA0C /* PDF_CoreDataUITestsLaunchTests.swift */,
 			);
 			path = PDF_CoreDataUITests;
+			sourceTree = "<group>";
+		};
+		9782B0672A754E61009CDA0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9782B06B2A754E99009CDA0C /* Subviews */,
+				9782B06A2A754E8C009CDA0C /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9782B06A2A754E8C009CDA0C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9782B0362A754AC0009CDA0C /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		9782B06B2A754E99009CDA0C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9782B06D2A754EB2009CDA0C /* Bookshelf.swift */,
+				9782B06E2A754EB2009CDA0C /* BrowseView.swift */,
+				9782B06F2A754EB2009CDA0C /* CoverView.swift */,
+				9782B06C2A754EB2009CDA0C /* GridView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +284,7 @@
 			files = (
 				9782B03C2A754AC2009CDA0C /* Preview Assets.xcassets in Resources */,
 				9782B0392A754AC2009CDA0C /* Assets.xcassets in Resources */,
+				9782B0692A754E7D009CDA0C /* data2vec.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +309,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9782B0652A754B5F009CDA0C /* Book+CoreDataClass.swift in Sources */,
+				9782B0722A754EB2009CDA0C /* BrowseView.swift in Sources */,
 				9782B03E2A754AC2009CDA0C /* Persistence.swift in Sources */,
+				9782B0662A754B5F009CDA0C /* Book+CoreDataProperties.swift in Sources */,
+				9782B0702A754EB2009CDA0C /* GridView.swift in Sources */,
 				9782B0412A754AC2009CDA0C /* PDF_CoreData.xcdatamodeld in Sources */,
+				9782B0732A754EB2009CDA0C /* CoverView.swift in Sources */,
 				9782B0372A754AC0009CDA0C /* ContentView.swift in Sources */,
 				9782B0352A754AC0009CDA0C /* PDF_CoreDataApp.swift in Sources */,
+				9782B0712A754EB2009CDA0C /* Bookshelf.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
