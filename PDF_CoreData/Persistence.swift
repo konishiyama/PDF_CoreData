@@ -13,7 +13,7 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for index in 0..<10 {
+        for index in 0..<6 {
             let newBook = Book(context: viewContext)
             newBook.title = "メモタイトル\(index + 1)"
             newBook.coverImageURL = "メモ\(index + 1)の内容が記載されています"

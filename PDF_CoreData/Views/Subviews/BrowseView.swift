@@ -7,14 +7,11 @@ struct BrowseView: View {
     
     var body: some View {
         VStack{
-            Image(systemName: "doc.viewfinder")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("PDF Viewer")
-                .foregroundColor(.accentColor)
+//            Text("PDF Viewer")
+//                .foregroundColor(.accentColor)
             // Using the PDFKitView and passing the previously created pdfURL
             PDFKitView(url: pdfUrl)
-                .scaledToFit()
+//                .scaledToFit()
             
         }
     }
@@ -33,6 +30,7 @@ struct PDFKitView: UIViewRepresentable {
         // Creating a new PDFVIew and adding a document to it
         let pdfView = PDFView()
         pdfView.document = PDFDocument(url: self.url)
+        pdfView.autoScales = true
         
         return pdfView
     }
