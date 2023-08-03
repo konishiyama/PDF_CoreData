@@ -2,11 +2,11 @@ import SwiftUI
 
 struct Bookshelf: View {
     @Environment(\.managedObjectContext) private var viewContext
-       @FetchRequest(
-           entity: Book.entity(),
-           sortDescriptors: [NSSortDescriptor(key: "createdAt", ascending: false)],
-           animation: .default
-       ) var fetchedBookList: FetchedResults<Book>
+    @FetchRequest(
+       entity: Book.entity(),
+       sortDescriptors: [NSSortDescriptor(key: "createdAt", ascending: false)],
+       animation: .default
+    ) var fetchedBookList: FetchedResults<Book>
     
 //    @StateObject var reportsVM: ProjectReportViewModel
     @State var add = false
@@ -38,6 +38,8 @@ struct Bookshelf: View {
                 Text("Filetitle: \(fileTitle ?? "nil")")
                 Text("Hello")
                 Text("createdAt: \(dateFomatter(date: createdAt ?? Date()))")
+                
+                
                 // Use LazyVGrid to create a grid with 2 columns
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                     ForEach(fetchedBookList, id: \.self) { book in
@@ -63,8 +65,8 @@ struct Bookshelf: View {
             }
         }
         .sheet(isPresented: $add, content: {
-//            DocumentPickerView(localStoredUrl: $localStoredUrl)
             DocumentPickerView(fileUrl: $fileUrl, localStoredUrl: $localStoredUrl, fileTitle: $fileTitle, createdAt: $createdAt)
+//            DocumentPickerView(fileUrl: $fileUrl, localStoredUrl: $localStoredUrl, fileTitle: $fileTitle, createdAt: $createdAt, viewContext: viewContext)
         })
 
     }
