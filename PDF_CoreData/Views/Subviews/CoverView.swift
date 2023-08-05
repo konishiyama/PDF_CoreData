@@ -3,12 +3,13 @@ import SwiftUI
 struct CoverView: View {
     var image: Image
     var title: String
+    var url: URL
     
     var body: some View {
         VStack(alignment: .center, spacing:0, content: {
             //MARK: Image
             NavigationLink {
-                BrowseView()
+                BrowseView(url:url)
             } label: {
                 image
                     .resizable()
@@ -18,7 +19,9 @@ struct CoverView: View {
             //MARK: Footer
             HStack(alignment: .center, spacing: 20, content: {
                 Text(title)
-                    .font(.system(size: 10))
+                    .lineLimit(1) 
+                    .font(.system(size: 15))
+                    .padding(.top, 10)
                 Spacer()
                 Menu {
                     Button(action: shareBook) {
@@ -36,7 +39,7 @@ struct CoverView: View {
                                 
                 } label: {
                         Label("", systemImage: "ellipsis")
-                            .font(.system(size: 10))
+                            .font(.system(size: 15))
                     }
             })
 //            .padding(.all, 6)
@@ -50,8 +53,20 @@ struct CoverView: View {
 }
 
 
+//struct CoverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CoverView(image: Image("bookcover1"), title:("Harry Potter"), url: )
+//    }
+//}
+
+
 struct CoverView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverView(image: Image("bookcover1"), title:("Harry Potter"))
+        if let pdfUrl = Bundle.main.url(forResource: "data2vec", withExtension: "pdf") {
+            CoverView(image: Image("bookcover1"), title:("Harry Potter"), url: pdfUrl)
+                .previewDevice("iPhone 12 Pro")
+        } else {
+            Text("PDF file not found")
+        }
     }
 }

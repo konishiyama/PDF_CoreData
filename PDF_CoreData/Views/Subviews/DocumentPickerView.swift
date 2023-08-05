@@ -39,6 +39,7 @@ struct DocumentPickerView: UIViewControllerRepresentable {
                 newBook.title = destinationURL.lastPathComponent
                 newBook.coverImageURL = "testURL"
                 newBook.createdAt = Date()
+                newBook.url = destinationURL
                 
             } catch {
                 self.parent.localStoredUrl = nil

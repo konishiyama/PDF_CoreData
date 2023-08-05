@@ -20,17 +20,21 @@ struct Bookshelf: View {
     @State private var createdAt: Date?
     @State private var showingPicker = false
     
+//    let testUrl = URL(string: "https")
+    let pdfUrl = Bundle.main.url(forResource: "data2vec", withExtension: "pdf")!
+    
     var body: some View {
         NavigationView{
             ScrollView{
                 // Use LazyVGrid to create a grid with 2 columns
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                     ForEach(fetchedBookList, id: \.self) { book in
-                        CoverView(image: Image("bookcover1"), title: book.title ?? "No Title")
+                        CoverView(image: Image("bookcover1"), title: book.title ?? "No Title", url: book.url ?? pdfUrl)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(15)
                     }
                 }
+                .navigationBarTitle("Bookshelf", displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text("Documents")

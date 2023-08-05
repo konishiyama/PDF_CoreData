@@ -17,9 +17,10 @@ struct ContentView: View {
        ) var fetchedBookList: FetchedResults<Book>
 
     var body: some View {
+        let testUrl: URL = URL(string: "testUrl")!
         TabView {
             NavigationView{
-                BrowseView()
+                BrowseView(url: testUrl)
             }
                 .tabItem {
                     Image(systemName: "book.fill")

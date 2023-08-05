@@ -4,22 +4,17 @@ import PDFKit
 struct BrowseView: View {
     // Creating a URL for the PDF and saving it in the pdfUrl variable
     let pdfUrl = Bundle.main.url(forResource: "data2vec", withExtension: "pdf")!
+    var url: URL
     
     var body: some View {
         VStack{
-//            Text("PDF Viewer")
-//                .foregroundColor(.accentColor)
             // Using the PDFKitView and passing the previously created pdfURL
-            PDFKitView(url: pdfUrl)
+            PDFKitView(url: url)
 //                .scaledToFit()
-            
         }
     }
     
 }
-
-
-
 
 
 
@@ -40,8 +35,22 @@ struct PDFKitView: UIViewRepresentable {
     }
 }
 
+//struct BrowseView_Previews: PreviewProvider {
+//    let pdfUrl = Bundle.main.url(forResource: "data2vec", withExtension: "pdf")!
+//    var pdfUrlString = pdfUrl.absoluteString
+//    static var previews: some View {
+//        BrowseView(url: pdfUrlString)
+//    }
+//}
+
+
 struct BrowseView_Previews: PreviewProvider {
     static var previews: some View {
-        BrowseView()
+        if let pdfUrl = Bundle.main.url(forResource: "data2vec", withExtension: "pdf") {
+            BrowseView(url: pdfUrl)
+                .previewDevice("iPhone 14 Pro")
+        } else {
+            Text("PDF file not found")
+        }
     }
 }
