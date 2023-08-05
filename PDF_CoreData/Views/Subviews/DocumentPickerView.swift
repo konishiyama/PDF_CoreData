@@ -6,10 +6,10 @@ import CoreData
 
 
 struct DocumentPickerView: UIViewControllerRepresentable {
-    @Binding var fileUrl: URL?
-    @Binding var localStoredUrl: URL?
-    @Binding var fileTitle: String?
-    @Binding var createdAt: Date?
+//    @Binding var fileUrl: URL?
+//    @Binding var localStoredUrl: URL?
+//    @Binding var fileTitle: String?
+//    @Binding var createdAt: Date?
     
     let viewContext: NSManagedObjectContext
 
@@ -22,18 +22,19 @@ struct DocumentPickerView: UIViewControllerRepresentable {
         
         
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-            self.parent.fileUrl = url
+//            self.parent.fileUrl = url
             copyPDFToLocalStorage(pdfURL: url, context: self.parent.viewContext)
         }
-
+        
+        
         func copyPDFToLocalStorage(pdfURL: URL, context: NSManagedObjectContext) {
             let destinationURL = getDocumentsDirectory().appendingPathComponent(pdfURL.lastPathComponent)
             
             do {
                 try FileManager.default.copyItem(at: pdfURL, to: destinationURL)
-                self.parent.localStoredUrl = destinationURL
-                self.parent.fileTitle = destinationURL.lastPathComponent
-                self.parent.createdAt = Date()
+//                self.parent.localStoredUrl = destinationURL
+//                self.parent.fileTitle = destinationURL.lastPathComponent
+//                self.parent.createdAt = Date()
 
                 let newBook = Book(context: context)
                 newBook.title = destinationURL.lastPathComponent
@@ -42,17 +43,17 @@ struct DocumentPickerView: UIViewControllerRepresentable {
                 newBook.url = destinationURL
                 
             } catch {
-                self.parent.localStoredUrl = nil
-                self.parent.fileTitle = "error1"
-                self.parent.createdAt = nil
+//                self.parent.localStoredUrl = nil
+//                self.parent.fileTitle = "error1"
+//                self.parent.createdAt = nil
             }
 
             do {
                 try context.save()
             } catch {
-                self.parent.localStoredUrl = nil
-                self.parent.fileTitle = "error2"
-                self.parent.createdAt = nil
+//                self.parent.localStoredUrl = nil
+//                self.parent.fileTitle = "error2"
+//                self.parent.createdAt = nil
             }
         }
         

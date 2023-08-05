@@ -11,13 +11,13 @@ struct Bookshelf: View {
     @State var add = false
     @State var open = false
     @State var added = false
-    @State var inCloud = false
+//    @State var inCloud = false
     
     
     @State private var fileUrl: URL?
-    @State private var localStoredUrl: URL?
-    @State private var fileTitle: String?
-    @State private var createdAt: Date?
+//    @State private var localStoredUrl: URL?
+//    @State private var fileTitle: String?
+//    @State private var createdAt: Date?
     @State private var showingPicker = false
     
 //    let testUrl = URL(string: "https")
@@ -37,7 +37,7 @@ struct Bookshelf: View {
                 .navigationBarTitle("Bookshelf", displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("Documents")
+                        Text("Bookshelf")
                             .bold()
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -52,7 +52,8 @@ struct Bookshelf: View {
             }
         }
         .sheet(isPresented: $add, content: {
-            DocumentPickerView(fileUrl: $fileUrl, localStoredUrl: $localStoredUrl, fileTitle: $fileTitle, createdAt: $createdAt, viewContext: viewContext)
+//            DocumentPickerView(fileUrl: $fileUrl, localStoredUrl: $localStoredUrl, fileTitle: $fileTitle, createdAt: $createdAt, viewContext: viewContext)
+            DocumentPickerView(viewContext: viewContext)
         })
 
     }
