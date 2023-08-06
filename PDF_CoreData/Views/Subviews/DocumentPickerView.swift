@@ -6,11 +6,7 @@ import CoreData
 
 
 struct DocumentPickerView: UIViewControllerRepresentable {
-//    @Binding var fileUrl: URL?
-//    @Binding var localStoredUrl: URL?
-//    @Binding var fileTitle: String?
-//    @Binding var createdAt: Date?
-    
+
     let viewContext: NSManagedObjectContext
 
     class Coordinator: NSObject, UIDocumentPickerDelegate {
@@ -22,7 +18,6 @@ struct DocumentPickerView: UIViewControllerRepresentable {
         
         
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-//            self.parent.fileUrl = url
             copyPDFToLocalStorage(pdfURL: url, context: self.parent.viewContext)
         }
         
@@ -32,10 +27,6 @@ struct DocumentPickerView: UIViewControllerRepresentable {
             
             do {
                 try FileManager.default.copyItem(at: pdfURL, to: destinationURL)
-//                self.parent.localStoredUrl = destinationURL
-//                self.parent.fileTitle = destinationURL.lastPathComponent
-//                self.parent.createdAt = Date()
-
                 let newBook = Book(context: context)
                 newBook.title = destinationURL.lastPathComponent
                 newBook.coverImageURL = "testURL"
@@ -43,17 +34,15 @@ struct DocumentPickerView: UIViewControllerRepresentable {
                 newBook.url = destinationURL
                 
             } catch {
-//                self.parent.localStoredUrl = nil
-//                self.parent.fileTitle = "error1"
-//                self.parent.createdAt = nil
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
 
             do {
                 try context.save()
             } catch {
-//                self.parent.localStoredUrl = nil
-//                self.parent.fileTitle = "error2"
-//                self.parent.createdAt = nil
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
         
